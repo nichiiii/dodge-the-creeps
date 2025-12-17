@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ds08amaee45f3"]
+
+[node name="MyTestNode" type="MyTestNode"]
+position = Vector2(6.7792525, 0.30091143)
