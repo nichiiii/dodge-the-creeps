@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://ds08amaee45f3"]
+[gd_scene load_steps=2 format=3 uid="uid://ds08amaee45f3"]
 
-[node name="MyTestNode" type="MyTestNode"]
-position = Vector2(6.7792525, 0.30091143)
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_ibnh7"]
+
+[node name="OrangeCharacter" type="OrangeCharacter"]
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ibnh7")

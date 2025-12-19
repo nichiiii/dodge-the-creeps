@@ -15,7 +15,7 @@ namespace godot {
         public:
             MyTestNode();
             ~MyTestNode();
-
+        
             void _process(double delta) override;
     };
 
