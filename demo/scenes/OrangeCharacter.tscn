@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ds08amaee45f3"]
+
+[ext_resource type="Texture2D" uid="uid://v0144rnwip37" path="res://assets/dodge_assets/dodge_assets/art/playerGrey_walk1.png" id="1_kjm83"]
+[ext_resource type="Texture2D" uid="uid://bxn5qrtnpas0m" path="res://assets/dodge_assets/dodge_assets/art/playerGrey_walk2.png" id="2_d7m3m"]
+[ext_resource type="Texture2D" uid="uid://b6esbtsj3ogpj" path="res://assets/dodge_assets/dodge_assets/art/playerGrey_up1.png" id="3_ufoaj"]
+[ext_resource type="Texture2D" uid="uid://cagin3u677071" path="res://assets/dodge_assets/dodge_assets/art/playerGrey_up2.png" id="4_ivygj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufoaj"]
+radius = 60.747555
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mp6tf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kjm83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d7m3m")
+}],
+"loop": true,
+"name": &"Left_Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ufoaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ivygj")
+}],
+"loop": true,
+"name": &"Up_Down",
+"speed": 5.0
+}]
+
+[node name="OrangeCharacter" type="OrangeCharacter"]
+position = Vector2(594.4159, 558.5297)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-21.415894, -258.52972)
+scale = Vector2(0.58108103, 0.58108103)
+shape = SubResource("CircleShape2D_ufoaj")
+
+[node name="char_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-22.665894, -254.39459)
+scale = Vector2(0.5810811, 0.5810811)
+sprite_frames = SubResource("SpriteFrames_mp6tf")
+animation = &"Up_Down"
+frame = 1
