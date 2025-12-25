@@ -6,4 +6,4 @@ reloadable = true
 
 [libraries]
 
-linux.debug.x86_64 = "res://bin/libMyTestNode.linux.template_debug.x86_64.so"
+linux.debug.x86_64 = "res://bin/libMainNode.linux.template_debug.x86_64.so"

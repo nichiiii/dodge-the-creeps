@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bersri8tt0hnj"]
+
+[ext_resource type="Texture2D" uid="uid://b1rgldccxidbf" path="res://assets/dodge_assets/dodge_assets/art/enemyFlyingAlt_1.png" id="1_2aayv"]
+[ext_resource type="Texture2D" uid="uid://gc13r0jx8hm" path="res://assets/dodge_assets/dodge_assets/art/enemyFlyingAlt_2.png" id="2_3ps4j"]
+[ext_resource type="Texture2D" uid="uid://wxr5gfom0fxr" path="res://assets/dodge_assets/dodge_assets/art/enemySwimming_1.png" id="3_nsr3h"]
+[ext_resource type="Texture2D" uid="uid://m8yooxa6kjgr" path="res://assets/dodge_assets/dodge_assets/art/enemySwimming_2.png" id="4_01py7"]
+[ext_resource type="Texture2D" uid="uid://c2grkagxu8pvd" path="res://assets/dodge_assets/dodge_assets/art/enemyWalking_1.png" id="5_0x8ng"]
+[ext_resource type="Texture2D" uid="uid://d1wtfs4teao4e" path="res://assets/dodge_assets/dodge_assets/art/enemyWalking_2.png" id="6_ymppd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16ki4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2aayv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3ps4j")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nsr3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_01py7")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0x8ng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ymppd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0i7wi"]
+radius = 46.0
+height = 140.0
+
+[node name="EnemMob" type="EnemMob"]
+
+[node name="mob_sprites" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_16ki4")
+animation = &"walk"
+
+[node name="onExitNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-75, -37, 140, 74)
+
+[node name="char_scanner" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0i7wi")

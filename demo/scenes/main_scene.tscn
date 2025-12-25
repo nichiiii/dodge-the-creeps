@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6jkds74fn2mm"]
+
+[ext_resource type="PackedScene" uid="uid://ds08amaee45f3" path="res://scenes/OrangeCharacter.tscn" id="1_w2twt"]
+[ext_resource type="PackedScene" uid="uid://bersri8tt0hnj" path="res://scenes/enem_mob.tscn" id="2_pw63i"]
+
+[sub_resource type="Curve2D" id="Curve2D_w2twt"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -29, -23, 0, 0, 0, 0, 598, -25, 0, 0, 0, 0, 1188, -18, 0, 0, 0, 0, 1186, 675, 0, 0, 0, 0, -38, 673, 0, 0, 0, 0, -26, -25)
+}
+point_count = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
+size = Vector2(208, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2twt"]
+size = Vector2(131, 82)
+
+[node name="MainNode" type="MainNode"]
+
+[node name="MobSpawnLocation" type="Path2D" parent="."]
+curve = SubResource("Curve2D_w2twt")
+
+[node name="OrangeCharacter" parent="." instance=ExtResource("1_w2twt")]
+position = Vector2(801, 570)
+collision_layer = 3
+collision_mask = 3
+
+[node name="scoreTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="mobTimer" type="Timer" parent="."]
+
+[node name="startTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="starting_point" type="Marker2D" parent="."]
+position = Vector2(605, 314)
+gizmo_extents = 0.0
+
+[node name="EnemMob" parent="." instance=ExtResource("2_pw63i")]
+position = Vector2(780, 427)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(313, 277)
+shape = SubResource("RectangleShape2D_pw63i")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(299, 50)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(363.5, 108)
+shape = SubResource("RectangleShape2D_w2twt")

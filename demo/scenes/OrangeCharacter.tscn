@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cagin3u677071" path="res://assets/dodge_assets/dodge_assets/art/playerGrey_up2.png" id="4_ivygj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ufoaj"]
-radius = 60.747555
+radius = 69.030556
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mp6tf"]
 animations = [{
@@ -34,16 +34,18 @@ animations = [{
 }]
 
 [node name="OrangeCharacter" type="OrangeCharacter"]
-position = Vector2(594.4159, 558.5297)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-21.415894, -258.52972)
+[node name="area_scanner" type="Area2D" parent="."]
+position = Vector2(-1, 0)
 scale = Vector2(0.58108103, 0.58108103)
+
+[node name="area_shape" type="CollisionShape2D" parent="area_scanner"]
 shape = SubResource("CircleShape2D_ufoaj")
+debug_color = Color(0.8740858, 0.31367257, 0.3913808, 0.41960785)
 
 [node name="char_animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(-22.665894, -254.39459)
+position = Vector2(0, -1)
 scale = Vector2(0.5810811, 0.5810811)
 sprite_frames = SubResource("SpriteFrames_mp6tf")
 animation = &"Up_Down"
-frame = 1
+flip_h = true

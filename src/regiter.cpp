@@ -1,6 +1,8 @@
 
-#include "MyTestNode/MyTestNode.hpp"
 #include "OrangeCharacter/OrangeCharacter.hpp"
+#include "EnemMob/EnemMob.hpp"
+#include "MainNode/MainNode.hpp"
+
 #include "register.hpp"
 
 #include "gdextension_interface.h"
@@ -13,8 +15,9 @@ void initialize(ModuleInitializationLevel p_level){
     if(p_level != MODULE_INITIALIZATION_LEVEL_SCENE){
         return;
     }
-    GDREGISTER_CLASS(MyTestNode);
     GDREGISTER_CLASS(OrangeCharacter);
+    GDREGISTER_CLASS(EnemMob);
+    GDREGISTER_CLASS(MainNode);
 }
 
 void uninitialize(ModuleInitializationLevel p_level){
