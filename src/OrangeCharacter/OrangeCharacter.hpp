@@ -34,13 +34,10 @@ namespace godot{
             //GODOT LIFECYCLE
             void _ready() override;
             void _process(double delta) override;
-
             //EXPORTING SPEED
             void setSpeed(float c_speed);   
             float getSpeed();
-
-            //SIGNALS
-         
+            //SIGNALS 
             void _on_body_entered(Node *body);
             //OTHERS
             void move_animation(Vector2 direction);

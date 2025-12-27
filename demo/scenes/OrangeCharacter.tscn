@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://b6esbtsj3ogpj" path="res://assets/dodge_assets/dodge_assets/art/playerGrey_up1.png" id="3_ufoaj"]
 [ext_resource type="Texture2D" uid="uid://cagin3u677071" path="res://assets/dodge_assets/dodge_assets/art/playerGrey_up2.png" id="4_ivygj"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ufoaj"]
-radius = 69.030556
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mp6tf"]
 animations = [{
 "frames": [{
@@ -33,19 +30,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufoaj"]
+radius = 61.977394
+
 [node name="OrangeCharacter" type="OrangeCharacter"]
-
-[node name="area_scanner" type="Area2D" parent="."]
-position = Vector2(-1, 0)
-scale = Vector2(0.58108103, 0.58108103)
-
-[node name="area_shape" type="CollisionShape2D" parent="area_scanner"]
-shape = SubResource("CircleShape2D_ufoaj")
-debug_color = Color(0.8740858, 0.31367257, 0.3913808, 0.41960785)
 
 [node name="char_animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
-scale = Vector2(0.5810811, 0.5810811)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mp6tf")
 animation = &"Up_Down"
 flip_h = true
+
+[node name="area_scanner" type="Area2D" parent="."]
+position = Vector2(-0.99999994, -5.9604645e-08)
+scale = Vector2(0.58108103, 0.58108103)
+
+[node name="area_shape" type="CollisionShape2D" parent="area_scanner"]
+position = Vector2(1.7209302, -12.046514)
+shape = SubResource("CircleShape2D_ufoaj")
+debug_color = Color(0.8740858, 0.31367257, 0.3913808, 0.41960785)

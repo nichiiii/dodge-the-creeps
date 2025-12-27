@@ -18,7 +18,7 @@ namespace godot{
         ClassDB::bind_method(D_METHOD("getMinSpeed"), &EnemMob::getMinSpeed);
 
         ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "minspeed"), "setMinSpeed", "getMinSpeed");
-        ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "maxspeed"), "setMaxSpeed", "getMaxSpeed");
+        ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "maxspeed"), "setMaxSpeed", "getMaxSpeed"); 
     }
 
     float EnemMob::getMaxSpeed(){
@@ -32,19 +32,20 @@ namespace godot{
     }
     void EnemMob::setMinSpeed(float minspeed){
         this->minspeed = minspeed;
-    }
+    } 
     void EnemMob::screen_exit(){
-        UtilityFunctions::print("mob has exited the screen");
+        animation->stop();
         queue_free();
     }
     
     void EnemMob::_ready(){
         VOSN_mob = get_node<VisibleOnScreenNotifier2D>("onExitNotifier");      
-        UtilityFunctions::print((*VOSN_mob).is_on_screen());
-        if(VOSN_mob){
-            UtilityFunctions::print("successfully connected");
-            VOSN_mob-> connect("screen_exited", Callable(this, "screen_exit"));
-        }
+        animation = get_node<AnimatedSprite2D>("mob_sprites");
+
+        if(VOSN_mob) VOSN_mob-> connect("screen_exited", Callable(this, "screen_exit"));
+        
+        if(animation) animation->play(types[UtilityFunctions::randi_range(0, (types.size() - 1))]);
+        
         else return;
     }
 

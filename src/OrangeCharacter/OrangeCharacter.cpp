@@ -32,7 +32,6 @@ namespace godot{
 
     //GODOT SIGNALS
     void OrangeCharacter::_on_body_entered(Node *body){
-        UtilityFunctions::print("void OrangeCharacter::_on_body_entered(Area2D *area2d)");
         emit_signal("C_Hit");
     }
 
@@ -44,20 +43,17 @@ namespace godot{
         areaScanner = get_node<Area2D>("area_scanner");
         
         if(areaScanner) {
-            UtilityFunctions::print("areaScanner Connected");
             areaShape = areaScanner->get_node<CollisionShape2D>("area_shape");
             areaScanner->connect("body_entered", Callable(this,"_on_body_entered"));
         }
         if (C_animation) return;
-        else{
-            UtilityFunctions::print("cant init");
-        }
+        else  UtilityFunctions::print("cant init");
+        
     };
 
     void OrangeCharacter ::_process(double delta){
 
         Vector2 direction = (*input).get_vector("ui_left", "ui_right", "ui_up", "ui_down");
-       
         Rect2 getRect = get_viewport_rect();
         Vector2 VP_vec = getRect.size;
 
@@ -98,6 +94,7 @@ namespace godot{
     void OrangeCharacter::start(Vector2 pos){
         set_position(pos);
         show();
+        set_process_mode(ProcessMode::PROCESS_MODE_INHERIT);
         areaShape->set_deferred("disbaled", false);
     }
 }

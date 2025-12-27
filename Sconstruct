@@ -2,8 +2,7 @@ env = SConscript("godot-cpp/SConstruct")
 
 env.Append(CPPPATH = ["src/"])
 
-sources = Glob("src/*.cpp") + Glob("src/OrangeCharacter/*.cpp") + Glob("src/EnemMob/*.cpp") + Glob("src/MainNode/*.cpp")
-
+sources = Glob("src/*.cpp") + Glob("src/OrangeCharacter/*.cpp") + Glob("src/EnemMob/*.cpp") + Glob("src/MainNode/*.cpp")  + Glob("src/UINode/*.cpp")
 library = env.SharedLibrary("demo/bin/libMainNode{}{}".format(env["suffix"],env["SHLIBSUFFIX"]), source= sources)
 
 Default(library)

@@ -2,6 +2,7 @@
 #include "OrangeCharacter/OrangeCharacter.hpp"
 #include "EnemMob/EnemMob.hpp"
 #include "MainNode/MainNode.hpp"
+#include "UINode/UINode.hpp"
 
 #include "register.hpp"
 
@@ -18,6 +19,7 @@ void initialize(ModuleInitializationLevel p_level){
     GDREGISTER_CLASS(OrangeCharacter);
     GDREGISTER_CLASS(EnemMob);
     GDREGISTER_CLASS(MainNode);
+    GDREGISTER_CLASS(UINode);
 }
 
 void uninitialize(ModuleInitializationLevel p_level){
