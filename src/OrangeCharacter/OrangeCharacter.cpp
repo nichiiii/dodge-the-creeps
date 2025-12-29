@@ -8,36 +8,24 @@ namespace godot{
     OrangeCharacter::~OrangeCharacter(){
         return;
     }
+    void OrangeCharacter::setSpeed(float c_speed) {
+        speed = c_speed;
+    }
+    float OrangeCharacter::getSpeed() {
+        return speed;
+    }
     void OrangeCharacter ::_bind_methods(){
-
         ClassDB :: bind_method(D_METHOD("get_speed"), &OrangeCharacter::getSpeed);
         ClassDB :: bind_method(D_METHOD("set_speed", "c_speed"), &OrangeCharacter::setSpeed);
-
         ClassDB :: bind_method(D_METHOD("_on_body_entered", "area"), &OrangeCharacter::_on_body_entered);
         ClassDB :: bind_method(D_METHOD("start", "c_pos"), &OrangeCharacter::start);
+        ClassDB :: bind_method(D_METHOD("end"), &OrangeCharacter::end);
 
         ADD_PROPERTY(PropertyInfo(Variant :: FLOAT, "speed"), "set_speed", "get_speed" );
         ADD_SIGNAL(MethodInfo("C_Hit"));
     };
     
-
-    // EXPORTED VAR AND METHODS
-    void OrangeCharacter::setSpeed(float c_speed) {
-        speed = c_speed;
-    }
-
-    float OrangeCharacter::getSpeed() {
-        return speed;
-    }
-
-    //GODOT SIGNALS
-    void OrangeCharacter::_on_body_entered(Node *body){
-        emit_signal("C_Hit");
-    }
-
-
-    //GODOT LIFECYCLE METHODS
-    void OrangeCharacter::_ready(){
+      void OrangeCharacter::_ready(){
 
         C_animation = get_node<AnimatedSprite2D>("char_animation");
         areaScanner = get_node<Area2D>("area_scanner");
@@ -68,8 +56,10 @@ namespace godot{
         move_animation(direction);
     };
 
+    void OrangeCharacter::_on_body_entered(Node *body){
+        emit_signal("C_Hit");
+    }
 
-    //OTHERS
     void OrangeCharacter ::move_animation(Vector2 direction){
 
         if(!C_animation) return;
@@ -93,8 +83,15 @@ namespace godot{
 
     void OrangeCharacter::start(Vector2 pos){
         set_position(pos);
-        show();
+        areaShape->set_deferred("disabled", false);
         set_process_mode(ProcessMode::PROCESS_MODE_INHERIT);
-        areaShape->set_deferred("disbaled", false);
+        set_visible(true);
+       
+    }
+
+    void OrangeCharacter::end(){
+        set_process_mode(ProcessMode::PROCESS_MODE_DISABLED);
+        set_visible(false);
+        areaShape->set_deferred("disabled", true);
     }
 }

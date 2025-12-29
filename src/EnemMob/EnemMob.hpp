@@ -15,24 +15,19 @@ namespace godot{
           
             float maxspeed = 400;
             float minspeed = 300;
-         
-
+            AnimatedSprite2D* animation = nullptr;
             VisibleOnScreenNotifier2D* VOSN_mob = nullptr;
         public:
+            Vector<String>types = {"fly", "swim", "walk"};
             float getMinSpeed();
             float getMaxSpeed();
             void setMinSpeed(float p_speed);
-            void setMaxSpeed(float p_speed);  
-            AnimatedSprite2D* animation = nullptr;
-            
+            void setMaxSpeed(float p_speed);
+            void screen_exit();
+          
             EnemMob();
             ~EnemMob();
             
-            Vector<String>types = {"fly", "swim", "walk"};
-
             void _ready() override;
-
-            void screen_exit();
-            
     };
 }

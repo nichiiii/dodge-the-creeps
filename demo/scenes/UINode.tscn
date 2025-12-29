@@ -90,3 +90,13 @@ theme_override_font_sizes/font_size = 25
 text = "Extreme"
 
 [node name="messageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.3573613, 0.61796445, 0.42533907, 1)

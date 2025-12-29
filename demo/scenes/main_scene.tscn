@@ -13,17 +13,15 @@ point_count = 5
 [node name="MainNode" type="MainNode"]
 mob_scene = ExtResource("1_7ykc4")
 
-[node name="UINode" parent="." instance=ExtResource("1_pw63i")]
-
 [node name="MobSpawnLocation" type="Path2D" parent="."]
 position = Vector2(-29, -23)
 rotation = -0.003189782
 curve = SubResource("Curve2D_pw63i")
 
 [node name="Path" type="PathFollow2D" parent="MobSpawnLocation"]
-position = Vector2(397.57324, 708.95264)
-rotation = -3.1367292
-progress = 2702.2612
+position = Vector2(1121.4469, -3.7466056)
+rotation = 0.0073633827
+progress = 1120.4324
 
 [node name="OrangeCharacter" parent="." instance=ExtResource("1_w2twt")]
 process_mode = 4
@@ -33,16 +31,15 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="scoreTimer" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="mobTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
 [node name="startTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
 
 [node name="starting_point" type="Marker2D" parent="."]
-position = Vector2(586, 190)
+position = Vector2(585, 294)
 gizmo_extents = 0.0
+
+[node name="UINode" parent="." instance=ExtResource("1_pw63i")]

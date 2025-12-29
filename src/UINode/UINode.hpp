@@ -7,6 +7,8 @@
 #include <godot_cpp/classes/canvas_layer.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/timer.hpp>
+#include <iostream>
+
 namespace godot{
     class UINode : public CanvasLayer{
         GDCLASS(UINode, CanvasLayer)
@@ -17,20 +19,29 @@ namespace godot{
             Label* message = nullptr;
             VBoxContainer *categBtnContainer = nullptr;
             Timer* messageTimer = nullptr; 
-
+            Vector <String> readyMessage = {"Ready", "Set", "Dodge"};
             Button* easy = nullptr;
             Button* medium = nullptr;
             Button* extreme = nullptr;
-            
-           
-
-        public:
-            UINode();
-            ~UINode();
             void on_pressed_easy();
             void on_pressed_medium();
             void on_pressed_extreme();
+           
+            void connectNodes();
+            void getNodes();
+           
+            
+        public:
+            UINode();
+            ~UINode();
             void _ready() override;
-            void connectButtons();
+            void hideButtons();
+            void showButtons();
+            void setMessage(String mess);
+            void setScore(int score);
+            void on_timer_gameOver();
+            void startMessageTimer();
+            String setReadyText(int index);
+            
     };
 }

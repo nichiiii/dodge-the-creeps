@@ -42,6 +42,7 @@ namespace godot{
             //OTHERS
             void move_animation(Vector2 direction);
             void start(Vector2 pos);
+            void end();
     
     };
 }

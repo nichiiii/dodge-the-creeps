@@ -18,44 +18,48 @@
 namespace godot{
     class MainNode : public Node2D{
         GDCLASS(MainNode, Node2D)
-
         protected:
             static void _bind_methods();
             int score = 0;
-            
-            //GAME_NODES
-            Timer* scoreTimer = nullptr;
-            Timer* mobTimer = nullptr;
-            Timer* startTimer = nullptr;
-            Ref<PackedScene> mob_scene = nullptr;
-            OrangeCharacter* character = nullptr;
-            Path2D* MobSpawnLocation = nullptr;
-            PathFollow2D* path = nullptr;
-            Marker2D* startingPoint = nullptr;
-            Vector2 getStartingPoint;
-            UINode* uinode = nullptr;
+            int MsgStartIndex = 0;
+            //gameNodes
+                Timer* scoreTimer = nullptr;
+                Timer* mobTimer = nullptr;
+                Timer* startTimer = nullptr;
+                Ref<PackedScene> mob_scene = nullptr;
+                OrangeCharacter* character = nullptr;
+                Path2D* MobSpawnLocation = nullptr;
+                PathFollow2D* path = nullptr;
+                Marker2D* startingPoint = nullptr;
+                Vector2 getStartingPoint;
+                UINode* uinode = nullptr;
             //mobSpeed
-            float MobMinSpeed = 0.0;
-            float MobMaxSpeed = 0.0;
-
-            void set_mob_scene(const Ref<PackedScene> scene);
-            Ref<PackedScene> get_mob_scene();
-
-            void on_score_timer_timeout();
-            void on_start_timer_timeout();
-            void on_mob_timer_timeout();
-            //gameSignals
-            void _on_character_hit();
-            void new_game();
-            void on_S_easy();
-            void on_S_medium();
-            void on_S_extreme();
-            
+                float MobMinSpeed = 0.0;
+                float MobMaxSpeed = 0.0;
+            //mobScene
+                void set_mob_scene(const Ref<PackedScene> scene);
+                Ref<PackedScene> get_mob_scene();
+            //timers
+                void on_score_timer_timeout();
+                void on_start_timer_timeout();
+                void on_mob_timer_timeout();
+            //TriggerSignal Methods
+                void on_gameOver();
+                void on_S_easy();
+                void on_S_medium();
+                void on_S_extreme();
+                void on_returnToMain();
+            //reusable codes
+                void hideUIandStartTimer();
+                void nodeConnection();
+                void getNodes();       
+                void startGame();   
+                void newGame();  
 
         public:
             MainNode();
             ~MainNode();
-            //lifecycle
+
             void _ready() override;
     };
 }

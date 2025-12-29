@@ -36,13 +36,16 @@ radius = 61.977394
 [node name="OrangeCharacter" type="OrangeCharacter"]
 
 [node name="char_animation" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.9989417, 0.76461834, 0.6246739, 1)
 position = Vector2(0, -1)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mp6tf")
 animation = &"Up_Down"
+speed_scale = 2.0
 flip_h = true
 
 [node name="area_scanner" type="Area2D" parent="."]
+visible = false
 position = Vector2(-0.99999994, -5.9604645e-08)
 scale = Vector2(0.58108103, 0.58108103)
 
