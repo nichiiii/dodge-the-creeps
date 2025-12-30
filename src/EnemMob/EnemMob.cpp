@@ -1,7 +1,6 @@
 #include "EnemMob.hpp"
 
 namespace godot{
-
     EnemMob::EnemMob(){
         return;
     }
@@ -48,6 +47,4 @@ namespace godot{
         
         else return;
     }
-
- 
 }

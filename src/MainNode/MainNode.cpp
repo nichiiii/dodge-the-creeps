@@ -65,7 +65,6 @@ namespace godot{
             uinode -> connect ("returnToMain", Callable(this,"on_returnToMain"));
         }
     }
-
     /*TRIGGER BY SIGNAL METHODS*/
     void MainNode::on_gameOver(){ //on character hit
         MobMaxSpeed = 0.0;
@@ -150,4 +149,3 @@ namespace godot{
         newGame();
     }
 }
- 
