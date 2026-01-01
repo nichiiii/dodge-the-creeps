@@ -1,12 +1,13 @@
 #pragma once
-#include <godot_cpp/classes/area2d.hpp>
 
-#include <godot_cpp/variant/utility_functions.hpp>
-#include <godot_cpp/classes/visible_on_screen_notifier2d.hpp>
 #include <godot_cpp/classes/rigid_body2d.hpp>
-#include <godot_cpp/classes/animated_sprite2d.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
 
 namespace godot{
+    class VisibleOnScreenNotifier2D;
+    class AnimatedSprite2D;
+    class Area2D;
+
     class EnemMob : public RigidBody2D{
         GDCLASS(EnemMob, RigidBody2D)
 
@@ -21,7 +22,7 @@ namespace godot{
             Vector<String>types = {"fly", "swim", "walk"};
             float getMinSpeed();
             float getMaxSpeed();
-            void setMinSpeed(float p_speed);
+            void setMinSpeed(float p_speed);    
             void setMaxSpeed(float p_speed);
             void screen_exit();
           

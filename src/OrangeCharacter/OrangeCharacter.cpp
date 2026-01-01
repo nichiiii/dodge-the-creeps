@@ -1,5 +1,9 @@
 #include "OrangeCharacter.hpp"
 
+#include <godot_cpp/classes/animated_sprite2d.hpp>
+#include <godot_cpp/classes/area2d.hpp>
+#include <godot_cpp/classes/collision_shape2d.hpp>
+
 namespace godot{
 
     OrangeCharacter::OrangeCharacter(){
@@ -14,6 +18,7 @@ namespace godot{
     float OrangeCharacter::getSpeed() {
         return speed;
     }
+
     void OrangeCharacter ::_bind_methods(){
         ClassDB :: bind_method(D_METHOD("get_speed"), &OrangeCharacter::getSpeed);
         ClassDB :: bind_method(D_METHOD("set_speed", "c_speed"), &OrangeCharacter::setSpeed);
@@ -86,7 +91,6 @@ namespace godot{
         areaShape->set_deferred("disabled", false);
         set_process_mode(ProcessMode::PROCESS_MODE_INHERIT);
         set_visible(true);
-       
     }
 
     void OrangeCharacter::end(){

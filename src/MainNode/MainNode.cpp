@@ -1,4 +1,14 @@
+
 #include "MainNode.hpp"
+
+#include <EnemMob/EnemMob.hpp>
+#include <godot_cpp/classes/engine.hpp>
+#include <UINode/UINode.hpp>
+#include <godot_cpp/classes/path_follow2d.hpp>
+#include <OrangeCharacter/OrangeCharacter.hpp>
+#include <godot_cpp/classes/path2d.hpp>
+#include <godot_cpp/classes/marker2d.hpp>
+#include <godot_cpp/classes/timer.hpp>
 
 namespace godot{
 
@@ -8,17 +18,9 @@ namespace godot{
     MainNode::~MainNode(){
         return;
     }
-    void MainNode::set_mob_scene(const Ref<PackedScene> scene){
-        mob_scene = scene;
-    }
-    Ref<PackedScene> MainNode::get_mob_scene(){
-        return mob_scene;
-    }
 
     void MainNode::_bind_methods(){
-        //exports
-            ClassDB::bind_method(D_METHOD("get_mob_scene"), &MainNode::get_mob_scene);
-            ClassDB::bind_method(D_METHOD("set_mob_scene", "scene"), &MainNode::set_mob_scene);
+
         //orangeCharacter
             ClassDB::bind_method(D_METHOD("on_gameOver"), &MainNode::on_gameOver);
         //timer
@@ -30,12 +32,12 @@ namespace godot{
             ClassDB::bind_method(D_METHOD("on_S_medium"), &MainNode::on_S_medium);
             ClassDB::bind_method(D_METHOD("on_S_extreme"), &MainNode::on_S_extreme);
             ClassDB::bind_method(D_METHOD("on_returnToMain"), &MainNode::on_returnToMain);
-        
-        ADD_PROPERTY(PropertyInfo(Variant :: OBJECT, "mob_scene", PROPERTY_HINT_RESOURCE_TYPE, "PackedScene"), "set_mob_scene", "get_mob_scene");
     }
 
     void MainNode::_ready(){        
         if (Engine::get_singleton()->is_editor_hint()) set_process_mode(Node::ProcessMode::PROCESS_MODE_DISABLED);
+        mob_scene = preloadScn -> load("res://scenes/enem_mob.tscn");
+
         getNodes();
         nodeConnection();
         mobTimer -> start();
@@ -65,6 +67,7 @@ namespace godot{
             uinode -> connect ("returnToMain", Callable(this,"on_returnToMain"));
         }
     }
+    
     /*TRIGGER BY SIGNAL METHODS*/
     void MainNode::on_gameOver(){ //on character hit
         MobMaxSpeed = 0.0;

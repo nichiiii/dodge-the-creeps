@@ -2,15 +2,13 @@
 
 //nodes 
 #include <godot_cpp/classes/character_body2d.hpp>
-#include <godot_cpp/classes/animated_sprite2d.hpp>
-#include <godot_cpp/classes/area2d.hpp>
-#include <godot_cpp/classes/collision_shape2d.hpp>
-
-//user/engine interactions
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/input.hpp>
 
 namespace godot{
+    class AnimatedSprite2D;
+    class Area2D;
+    class CollisionShape2D;
 
     class OrangeCharacter : public CharacterBody2D{
         

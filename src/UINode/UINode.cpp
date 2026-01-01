@@ -1,5 +1,11 @@
-#include "UINode.hpp"
 
+#include "UINode.hpp"
+#include <godot_cpp/classes/canvas_layer.hpp>
+#include <godot_cpp/classes/timer.hpp>
+#include <godot_cpp/classes/button.hpp>
+#include <godot_cpp/classes/label.hpp>
+
+#include <godot_cpp/classes/v_box_container.hpp>
 
 namespace godot{
     UINode::UINode(){

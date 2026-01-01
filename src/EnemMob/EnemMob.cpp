@@ -1,5 +1,9 @@
 #include "EnemMob.hpp"
 
+#include <godot_cpp/classes/visible_on_screen_notifier2d.hpp>
+#include <godot_cpp/classes/animated_sprite2d.hpp>
+#include <godot_cpp/classes/area2d.hpp>
+
 namespace godot{
     EnemMob::EnemMob(){
         return;
