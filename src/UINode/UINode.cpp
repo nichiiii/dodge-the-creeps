@@ -50,6 +50,7 @@ namespace godot{
     }
 
     void UINode::setMessage(String mess){
+        if(!message) return;
         message-> set_text(mess);
     }
     String UINode::setReadyText(int index){

@@ -34,10 +34,13 @@ namespace godot{
 
         C_animation = get_node<AnimatedSprite2D>("char_animation");
         areaScanner = get_node<Area2D>("area_scanner");
-        
+        input = Input::get_singleton();
         if(areaScanner) {
             areaShape = areaScanner->get_node<CollisionShape2D>("area_shape");
             areaScanner->connect("body_entered", Callable(this,"_on_body_entered"));
+        }
+        if(!input){
+            return;
         }
         if (C_animation) return;
         else  UtilityFunctions::print("cant init");

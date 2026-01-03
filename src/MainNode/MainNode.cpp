@@ -20,23 +20,23 @@ namespace godot{
     }
 
     void MainNode::_bind_methods(){
-
-        //orangeCharacter
             ClassDB::bind_method(D_METHOD("on_gameOver"), &MainNode::on_gameOver);
-        //timer
             ClassDB::bind_method(D_METHOD("on_score_timer_timeout"), &MainNode::on_score_timer_timeout);
             ClassDB::bind_method(D_METHOD("on_start_timer_timeout"), &MainNode::on_start_timer_timeout);
             ClassDB::bind_method(D_METHOD("on_mob_timer_timeout"), &MainNode::on_mob_timer_timeout);
-        //signalsCatcher
             ClassDB::bind_method(D_METHOD("on_S_easy"), &MainNode::on_S_easy);
             ClassDB::bind_method(D_METHOD("on_S_medium"), &MainNode::on_S_medium);
             ClassDB::bind_method(D_METHOD("on_S_extreme"), &MainNode::on_S_extreme);
             ClassDB::bind_method(D_METHOD("on_returnToMain"), &MainNode::on_returnToMain);
     }
 
-    void MainNode::_ready(){        
-        if (Engine::get_singleton()->is_editor_hint()) set_process_mode(Node::ProcessMode::PROCESS_MODE_DISABLED);
-        mob_scene = preloadScn -> load("res://scenes/enem_mob.tscn");
+    void MainNode::_ready(){      
+        UtilityFunctions::print("Successfully load");
+        preloadScn = ResourceLoader::get_singleton();
+        if(preloadScn){
+            mob_scene = preloadScn -> load("res://scenes/enem_mob.tscn");
+        }
+        
 
         getNodes();
         nodeConnection();

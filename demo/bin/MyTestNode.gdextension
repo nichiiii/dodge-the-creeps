@@ -2,8 +2,8 @@
 
 entry_symbol = "example_library_init"
 compatibility_minimum = "4.5"
-reloadable = true
+reloadable = false
 
 [libraries]
-
-linux.debug.x86_64 = "res://bin/libMainNode.linux.template_debug.x86_64.so"
+linux.release.x86_64 = "res://bin/libMainNode.linux.template_release.x86_64.so"
+linux.debug.x86_64 = "res://bin/libMainNode.linux.template_release.x86_64.so"

@@ -26,7 +26,7 @@ namespace godot{
                 Timer* mobTimer = nullptr;
                 Timer* startTimer = nullptr;
                 Ref<PackedScene> mob_scene = nullptr;
-                ResourceLoader*  preloadScn = ResourceLoader::get_singleton();
+                ResourceLoader*  preloadScn = nullptr;
                 OrangeCharacter* character = nullptr;
                 Path2D* MobSpawnLocation = nullptr;
                 PathFollow2D* path = nullptr;
@@ -61,5 +61,3 @@ namespace godot{
     };
 }
 
-//add labels
-//add signals

@@ -14,7 +14,6 @@ namespace godot{
     
     void EnemMob::_bind_methods(){
         ClassDB::bind_method(D_METHOD("screen_exit"), &EnemMob::screen_exit);
-
         ClassDB::bind_method(D_METHOD("setMaxSpeed", "maxspeed"), &EnemMob::setMaxSpeed);
         ClassDB::bind_method(D_METHOD("setMinSpeed", "minspeed"), &EnemMob::setMinSpeed);
         ClassDB::bind_method(D_METHOD("getMaxSpeed"), &EnemMob::getMaxSpeed);

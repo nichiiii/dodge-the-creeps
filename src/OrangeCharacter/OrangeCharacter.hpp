@@ -20,7 +20,7 @@ namespace godot{
         protected:
             static void _bind_methods();
 
-            Input* input = Input :: get_singleton();
+            Input* input = nullptr;
             AnimatedSprite2D* C_animation = nullptr;
             Area2D* areaScanner = nullptr;
             CollisionShape2D* areaShape = nullptr;
