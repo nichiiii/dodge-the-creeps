@@ -5,9 +5,9 @@ This is based from the official documentation of godot ["Your First Game"](https
 The purpose of this is to understand the fundamentals of C++, particularly pointers, reference, headers, OOP, namespace, heap, stacks, and C++ build process. 
 
 # Versions
-## Original Version
+### Original Version
 ![Original Version](https://docs.godotengine.org/en/stable/_images/dodge_preview.gif)
-## My Work
+### My Work
 ![Current Version](https://github.com/nichiiii/dodge-the-creeps/blob/main/sample_images/cinnamon-2026-01-04T1549210800.gif)
 
 ## Author
