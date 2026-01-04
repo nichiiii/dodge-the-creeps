@@ -8,7 +8,7 @@ The purpose of this is to understand the fundamentals of C++, particularly point
 ## Original Version
 ![Original Version](https://docs.godotengine.org/en/stable/_images/dodge_preview.gif)
 ## My Work
-![Current Version](../dodge-the-creeps/sample_images/cinnamon-2026-01-04T1549210800.gif)
+![Current Version](https://github.com/nichiiii/dodge-the-creeps/blob/main/sample_images/cinnamon-2026-01-04T1549210800.gif)
 
 ## Author
 - Nichi
