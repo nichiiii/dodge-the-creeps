@@ -31,13 +31,10 @@ namespace godot{
     }
 
     void MainNode::_ready(){      
-        UtilityFunctions::print("Successfully load");
         preloadScn = ResourceLoader::get_singleton();
         if(preloadScn){
             mob_scene = preloadScn -> load("res://scenes/enem_mob.tscn");
         }
-        
-
         getNodes();
         nodeConnection();
         mobTimer -> start();

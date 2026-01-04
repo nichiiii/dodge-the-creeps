@@ -35,7 +35,7 @@ namespace godot{
             
             init_obj.register_initializer(initialize);
             init_obj.register_terminator(uninitialize);
-            init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_CORE);
+            init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
             return init_obj.init();
         }
     }
